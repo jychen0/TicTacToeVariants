@@ -49,14 +49,14 @@ public class App {
         regular.setForeground(Color.white);
         buttonPanel.add(regular, c);
 
-        JButton threeOnly = new JButton("Play 3-At-A-Time");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 1;
-        c.gridy = 1;
-        c.insets = new Insets(5, 0, 0, 0);
-        threeOnly.setBackground(Color.darkGray);
-        threeOnly.setForeground(Color.white);
-        buttonPanel.add(threeOnly, c);
+        // JButton threeOnly = new JButton("Play 3-At-A-Time");
+        // c.fill = GridBagConstraints.HORIZONTAL;
+        // c.gridx = 1;
+        // c.gridy = 1;
+        // c.insets = new Insets(5, 0, 0, 0);
+        // threeOnly.setBackground(Color.darkGray);
+        // threeOnly.setForeground(Color.white);
+        // buttonPanel.add(threeOnly, c);
 
         JButton RandomAI = new JButton("Play against Random AI");
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -76,14 +76,14 @@ public class App {
         AIWins.setForeground(Color.white);
         buttonPanel.add(AIWins, c);
 
-        JButton extreme = new JButton("Play Extreme Tic-Tac-Toe (WIP)");
-        c.fill = GridBagConstraints.HORIZONTAL;
-        c.gridx = 1;
-        c.gridy = 4;
-        c.insets = new Insets(5, 0, 0 ,0);
-        extreme.setBackground(Color.darkGray);
-        extreme.setForeground(Color.white);
-        buttonPanel.add(extreme, c);
+        // JButton extreme = new JButton("Play Extreme Tic-Tac-Toe (WIP)");
+        // c.fill = GridBagConstraints.HORIZONTAL;
+        // c.gridx = 1;
+        // c.gridy = 4;
+        // c.insets = new Insets(5, 0, 0 ,0);
+        // extreme.setBackground(Color.darkGray);
+        // extreme.setForeground(Color.white);
+        // buttonPanel.add(extreme, c);
 
         frame.add(buttonPanel, BorderLayout.CENTER);
 
@@ -96,13 +96,13 @@ public class App {
             }
         });
 
-        threeOnly.addActionListener(new ActionListener()
-        {
-            public void actionPerformed(ActionEvent e)
-            {
-                chooseMode(1);
-            }
-        });
+        // threeOnly.addActionListener(new ActionListener()
+        // {
+        //     public void actionPerformed(ActionEvent e)
+        //     {
+        //         chooseMode(1);
+        //     }
+        // });
 
         RandomAI.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e)
@@ -115,12 +115,16 @@ public class App {
             }
         });
 
-        // AIWins.addActionListener(new ActionListener() {
-        //     public void actionPerformed(ActionEvent e)
-        //     {
-        //         chooseMode(4);
-        //     } 
-        // });
+        AIWins.addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e)
+            {
+                int choice = JOptionPane.showConfirmDialog(frame, "Do you want to go first?", "Choose Turn", JOptionPane.YES_NO_OPTION);
+                if (choice == JOptionPane.YES_OPTION)
+                    chooseMode(4);
+                else if (choice == JOptionPane.NO_OPTION)
+                    chooseMode(5);
+            }
+        });
 
         // extreme.addActionListener(new ActionListener() {
         //     public void actionPerformed(ActionEvent e)
@@ -146,10 +150,13 @@ public class App {
             case 3:
                 RandomAI randomAISecond = new RandomAI(false);
                 break;
-            // case 4:
-            //     PerfectAI perfectAIFirst = new PerfectAI(false);
-            //     break;
-            // case 5:
+            case 4:
+                PerfectAI perfectAIFirst = new PerfectAI(true);
+                break;
+            case 5:
+                PerfectAI perfectAISecond = new PerfectAI(false);
+                break;
+            // case 6:
             //     Extreme extreme = new Extreme();
             //     break;
         }
