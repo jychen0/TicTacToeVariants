@@ -49,14 +49,14 @@ public class App {
         regular.setForeground(Color.white);
         buttonPanel.add(regular, c);
 
-        // JButton threeOnly = new JButton("Play 3-At-A-Time");
-        // c.fill = GridBagConstraints.HORIZONTAL;
-        // c.gridx = 1;
-        // c.gridy = 1;
-        // c.insets = new Insets(5, 0, 0, 0);
-        // threeOnly.setBackground(Color.darkGray);
-        // threeOnly.setForeground(Color.white);
-        // buttonPanel.add(threeOnly, c);
+        JButton threeOnly = new JButton("Play 3-At-A-Time");
+        c.fill = GridBagConstraints.HORIZONTAL;
+        c.gridx = 1;
+        c.gridy = 1;
+        c.insets = new Insets(5, 0, 0, 0);
+        threeOnly.setBackground(Color.darkGray);
+        threeOnly.setForeground(Color.white);
+        buttonPanel.add(threeOnly, c);
 
         JButton RandomAI = new JButton("Play against Random AI");
         c.fill = GridBagConstraints.HORIZONTAL;
@@ -67,7 +67,7 @@ public class App {
         RandomAI.setForeground(Color.white);
         buttonPanel.add(RandomAI, c);
 
-        JButton AIWins = new JButton("Play Perfect AI (WIP)");
+        JButton AIWins = new JButton("Play Perfect AI");
         c.fill = GridBagConstraints.HORIZONTAL;
         c.gridx = 1;
         c.gridy = 3;
@@ -96,13 +96,13 @@ public class App {
             }
         });
 
-        // threeOnly.addActionListener(new ActionListener()
-        // {
-        //     public void actionPerformed(ActionEvent e)
-        //     {
-        //         chooseMode(1);
-        //     }
-        // });
+        threeOnly.addActionListener(new ActionListener()
+        {
+            public void actionPerformed(ActionEvent e)
+            {
+                chooseMode(1);
+            }
+        });
 
         RandomAI.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e)
